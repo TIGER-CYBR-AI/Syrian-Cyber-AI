@@ -13,7 +13,8 @@ st.markdown("""
     .stTextInput>div>div>input { color: #00ffcc; background-color: #131a30; border-color: #00ffcc; }
     h1 { color: #00ffcc; text-align: center; font-family: 'Courier New', monospace; }
 </style>
-""", unsafe_allow_index=True)
+""", unsafe_allow_html
+=True)
 
 st.title("⚡ Syrian Cyber AI ⚡")
 
