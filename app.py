@@ -1,4 +1,4 @@
-                import streamlit as st
+import streamlit as st
 from core import SyrianCyberAI
 
 st.set_page_config(page_title="Syrian Cyber AI", layout="centered")
