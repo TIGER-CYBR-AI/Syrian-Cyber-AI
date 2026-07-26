@@ -42,3 +42,29 @@ class SyrianCyberAI:
             return response_json['choices']['message']['content']
         except Exception as e:
             return f"فشل في الاتصال بالسحابة: {str(e)}"
+from fastapi import FastAPI
+from pydantic import BaseModel
+import uvicorn
+
+# 1. إنشاء بوابة السيرفر السحابي
+app = FastAPI(title="Syrian Cyber AI API")
+
+# 2. تحديد شكل البيانات القادمة من الموبايل أو السيرفر
+class CyberRequest(BaseModel):
+    prompt: str
+
+# 3. نقطة الاتصال السحابية
+@app.post("/chat")
+async def chat_endpoint(request: CyberRequest):
+    try:
+        # استدعاء دالة الذكاء الاصطناعي الخاصة بك وتمرير النص لها تلقائياً
+        # قمت هنا بربطها بمتغير يأمر_الذات (الطلب) المكتوب بكودك
+        ai_system = SyrianCyberAI()
+        response = ai_system.يأمر_الذات(request.prompt)
+        return {"status": "success", "data": response}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+# 4. أمر التشغيل الخاص بالسحابة (يفتح البوابة عبر بورت 8000)
+if __name__ == "__main__":
+    uvicorn.run("core:app", host="0.0.0.0", port=8000, reload=True)
