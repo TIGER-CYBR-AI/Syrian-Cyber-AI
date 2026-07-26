@@ -1,4 +1,8 @@
 streamlit
 google-generativeai
 gTTS
+fastapi
+uvicorn
+pydantic
+requests
 
